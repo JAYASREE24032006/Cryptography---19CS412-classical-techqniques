@@ -2,7 +2,7 @@
 # Caeser Cipher
 Caeser Cipher using with different key values
 
-# AIM:
+## AIM:
 
 To encrypt and decrypt the given message by using Ceaser Cipher encryption algorithm.
 
@@ -69,8 +69,6 @@ int main()
 ```
 
 ## OUTPUT:
-OUTPUT:
-Simulating Caesar Cipher
 
 ![Screenshot 2024-09-02 221322](https://github.com/user-attachments/assets/75d79761-d0f6-49fc-a98f-b7bb97b18ee9)
 
