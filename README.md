@@ -503,66 +503,65 @@ In the rail fence cipher, the plaintext is written downwards and diagonally on s
 ```
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 int main() 
 {
-    int i, j, len, rails, count;
-    char str[1000];
-    int code[100][1000]; 
-    printf("Enter a Secret Message: ");
-    fgets(str, sizeof(str), stdin);  
-    str[strcspn(str, "\n")] = '\0'; 
-    len = strlen(str);
-    printf("Enter number of rails: ");
-    scanf("%d", &rails);
-    for (i = 0; i < rails; i++) 
+    int i, j, k, l;
+    char a[20], c[20], d[20];
+    printf("\n\t\tRAIL FENCE TECHNIQUE");
+    printf("\n\nEnter the input string : ");
+    fgets(a, sizeof(a), stdin);
+    a[strcspn(a, "\n")] = '\0'; 
+    l = strlen(a):
+    j = 0;
+    for (i = 0; i < l; i++) 
     {
-        for (j = 0; j < len; j++) 
+        if (i % 2 == 0)
         {
-            code[i][j] = 0;
+            c[j++] = a[i];
         }
     }
-    count = 0;  
-    j = 0;      
-    while (j < len)
+    for (i = 0; i < l; i++) 
     {
-        if (count % 2 == 0) 
+        if (i % 2 == 1) 
         {
-            for (i = 0; i < rails && j < len; i++) 
-            {
-                code[i][j] = (int)str[j]; 
-                j++;
-            }
-        } 
-        else 
-        {
-            for (i = rails - 2; i > 0 && j < len; i--) 
-            {
-                code[i][j] = (int)str[j]; 
-                j++;
-            }
-        }
-        count++;
-    }
-    printf("\nEncrypted Message: ");
-    for (i = 0; i < rails; i++) 
-    {
-        for (j = 0; j < len; j++)
-        {
-            if (code[i][j] != 0) 
-            {
-                printf("%c", code[i][j]);
-            }
+            c[j++] = a[i];
         }
     }
-    printf("\n");
+    c[j] = '\0';
+    printf("\nCipher text after applying rail fence : ");
+    printf("%s", c);
+    if (l % 2 == 0) 
+    {
+        k = l / 2;
+    }
+    else 
+    {
+        k = (l / 2) + 1;
+    }
+    j = 0;
+    for (i = 0; i < k; i++) 
+    {
+        d[j] = c[i];
+        j = j + 2;
+    }
+    j = 1;
+    for (i = k; i < l; i++) 
+    {
+        d[j] = c[i];
+        j = j + 2;
+    }
+    d[l] = '\0'; // Null-terminate the decrypted text
+    printf("\nText after decryption : ");
+    printf("%s", d);
     return 0;
 }
+
 ```
 
  
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/6f7fe832-d0f5-4e2b-abf1-d3ad90725c28)
+![image](https://github.com/user-attachments/assets/962d4b37-3ebe-4d77-a299-e2efce84f4f2)
+
 
 
 ## RESULT:
